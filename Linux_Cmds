@@ -1,0 +1,338 @@
+Virtualbox Management -> https://academy.ehacking.net/courses/551622/lectures/10002215
+
+- Basic difference between Linux flavours is that Ubuntu or Debian based flavours use 'apt-get' and fedora or other same one
+uses the 'yum'
+
+# General cmds 
+
+- ls        		// To list the files present in directory
+- ls option_cmd directory_name      // syntax for ls cmd
+- ls Documents          // this will list all the files which r in Documents directory
+- ls -al                // this will show the hidden files and the details about all files
+- ls -ltr		// to list every thing in timely reverse order 
+- ls -li 		// to list the inodes 
+- ls -sh		// to display size in human readble format
+
+Note -> on doing cmd in home directory -> ls -ltr // u might see that the username and groupname for the user is same even after
+changing it and the reason for that the actual group of the user will always remain the username it is just now part of the another
+group to change it properly use the 
+
+- mkdir directory_name // to create the directory
+
+- rm filename                       // to remove a file
+- rm -r parent_directory_name       // this will remove the file and the directory's also
+
+- cp options_cmd src des        // 'cp' is used as copy command 'src' is the source from which we wants to copy and 'des' is
+                                // the destination where we wants to copy
+- cp file1 file2                // this will copy data of file1 to file2 and create file2 if it does not exist
+- cp file1 dir1                 // this will copy file1 to dir1 directory
+
+- mv options_cmd src des // syntax for mv
+- mv file1 file2 // this will move data and rename file and directories so here file1 will be renamed as file2 and if file2
+                 //  doesn't exist it will be created
+- mv file1 dir1 // this will move file1 to dir1 directory and if file1 exists then the data in it will be overwritten
+- mv -v file1 dir1      // for the verbose mode
+
+- cat options_cmd filename1 filename2 .... // syntax for cat
+- cat               // this will allow u to write something on terminal and echo things u enter
+- use ctrl+d to come out of 'cat' cmd
+- cat file_name // to display contents of the file
+- cat filename1 filename2 // this will combine and display the contents of two files
+
+- 'touch' cmd is a way to create files in linux it is also used to change the timestamps on existing files and directories, u 
+  cannot use 'touch' cmd to create directories
+- touch filename                        //syntax to create a new file
+- touch hello.sh  //.sh extention is not necessary but for editor it is usefull, it is also best practice to provide extension
+- touch file1     // file1 should be already exist now the timestamp of the file would be the current time
+
+VIM Editor ->
+- sudo apt-get install vim // to install vim
+- vim name_of_file_to_edit // open the editor with file open
+- vim file.txt // to create a file
+      - press i // to insert
+      - press esc to exit the insert mode
+      - :w // to save
+      - :q // to exit
+      - :wq // to save and close the file or we can also use ZZ for the same task
+      - :q! // to exit file without saving
+      - press o // to get into the next line , don't press it in the insert mode
+
+- nano filename // this will create the file if not exists
+- ctrl+o // to save the data in file and then press enter
+- other common cmds which will be used in nano editor will be already listed at bottom of the editor
+
+
+
+Note -> If U get permission denied while listing of files with any command then use 'sudo' with that cmd
+
+- cmd -> echo $SHELL , o/p -> the path to the shell which is being used
+
+- cd /root/Desktop  // this navigation is also correct, no need to 1st execute cd ~ then go to Desktop
+- ls /home/          // to know the users
+- cd /home/username  // to navigate to userbased directory
+
+- pwd       // This cmd shows the current working directory
+
+- whoami // to find who is logged in the system at current
+- visudo  /etc/sudoers  // it is to edit file which is configuration file that allows u to add or remove the rights to run cmds
+  look for the string 'wheel' the users in this group can run all cmds -?? 
+- hostname // It is used to obtain the DNS(Domain Name System) name and set the system's hostname or NIS(Network Information System)
+  domain name. A hostname is a name which is given to a computer and it attached to the network. Its main purpose is to uniquely
+  identify over a network.
+- hostnamectrl -set-hostname newhostname // to change the hostname
+  place where the changes r done for hostname -> /etc/hostname
+
+
+- cat /etc/os-release // to get info of OS
+- uname -a // for kernel info
+- sudo dmidecode // to get proper and detailed info for the system
+
+
+- history // to know the cmds executed
+- !cmd_no. // the history cmd gives the cmd no. for the cmds we can use it's no. to execute the cmd
+- path for the history cmds saved -> home/username/.bash_history
+
+- sudo init 6 or reboot // to restart the machine
+- init 0 or shutdown // to shutdown the machine
+- init 3 // multi user mode
+- halt // it shudown the computers and if their r processes that need some time to come down it doesn't care as it shutdown rightaway 
+
+- updatedb 	// this will build the database for file and directory, use this before using locate but not all the time, once
+ when u start using kali linux just execute it in starting.
+
+- locate file_name // the locate will help u to find the file in whole computer or all the directories and places
+
+- find // on executing it, this will search for everything
+- find /etc -name file_name // now this will search the file only in etc folder, so put the location in 2nd param 
+- find /etc -name p* // this will search for every file which starts with p in the given location
+
+'locate' uses a prebuilt database, which should be regularly updated, while 'find' interates over a filesystem to locate
+files, thus locate is much faster then find, but can be inaccurate if the database(can be seen as a cache) is not updated
+
+- 'head' and 'tail' cmds generally we use them with files, So 'head' cmd could be used to output the first part of the file and  
+  the 'tail' cmd could be used to output the last part of the file
+- Bydefault 'head' will print first 10 lines and 'tail' will print last 10 cmds
+- head file_name        // syntax for head
+- tail file_name        // syntax for tail
+- head -nNumber_of_lines file_name  // to give limit for the no. of lines to display, no space between -n and Number_of_lines
+- tail -nNumber_of_lines file_name  // to give limit for the no. of lines to display
+- head -Number_of_lines file_name   // works same as cmd -> head -nNumber_of_lines file_name 
+- head file1 file2          // to see first 10 lines of multiple files
+- head -Number_of_lines file1 file2     // to see first desired number of lines for multiple files
+
+- sort filename // this to sort the data in the given file based on Alphabets
+
+- nl filename // this to display the file with no.'s on the terminal
+- nl -s '# ' -w 6  filename // this to display the file with no.'s with # displayed after no.s on the terminal using the
+	flag '-s' and '-w' is the no. width used to display data properly
+
+
+- 'wc' cmd or wordcount prints a count of new lines, words and bytes for each input file
+- wc file_name  // o/p -> 1 6 42 file_name , here ist param '1' represents the no. of lines in file, 2nd param '6' represents
+                // the no. of words and 3rd param '42' represents the no. of characters in file and 4th is name of file
+- wc -c file_name   // this will give the no. of bytes or no. of characters in file
+- wc -l file_name   // this will give the no. of lines in file
+- wc -w file_name   // this will give the no. of words in file
+- wc -L file_name   // this will give the length of the longest line in file
+
+- tac filename // tac is opposite of cat as it displays the data from top to bottom
+
+- cat filename|sed 's/t/T'	// here in 's/t/T' the 's' is for substitude hence it will replace the 't' with 'T' for every
+		first 't' char in the file
+		Note -> These changes will not be saved
+
+- sed 's/t/T/g' filename // here in 's/t/T/g' the 'g' which is global is to tell that substitude every 't' character with 'T'
+
+- sed -i 's/t/T/g' filename // here in 'i' will make the changes to the original file
+Sed tutorial -> https://academy.ehacking.net/courses/551622/lectures/10003044
+
+- 'grep'(global regural expression print), 'grep' cmd processes text line by line and print any line which matches the 
+  specified pattern, So 'grep' cmd could be used to search some kind of pattern or word or sentence in a text file or
+  no. of text file
+- grep "word_or_text_to_search" file_name // this cmd will search the entered word from the input file, and the 'grep' cmd is     
+                                         // sensitive case hence the exact word or text would be searched 
+- grep -i "word_or_text_to_search" file_name  // to make the search not case-sensitive
+- grep -n "word_or_text_to_search" file_name  // to print the line no. with output 
+- grep -c "word_or_text_to_search" file1 file2 file3  // to search in multiple files, -c will count the word or text
+- grep -n "word_or_text_to_search" *      // to search from all the files
+- grep -nv "word_or_text_to_search" file_name    // this will o/p all the lines which doesn't contain the input text
+
+- 'less' cmd is used for reading the file or to search something inside the file, 'less' is better then the cat cmd to read
+  the  file contents as the size of the opened terminal window will not create any hurdle to display the data which was too
+  big and we were not able to scroll further in terminal
+- less filename     // to read the data from the file and scroll the content of file as u proceed by scrolling
+    - press space after executing above cmd will display the data on terminal page by page
+    - press shift + B to go up the pages
+    - press shift + G to go at end of the file
+    - press g       // this go at the top of the file
+    - /book         // this is search for the 'book' keyword in file and to go to next 'book' in file press 'n'
+    - ?book         // to search for 'book' in file from down to up
+    - press 'q' to quit from less
+
+
+
+# Process Management 
+
+Note -> - Applications and Linux r also known as Service
+	- Shell Script is a package of cmds in a file
+	- When u run a application it generates process and it's process it
+	- Daemon is something which contiounously runs in the background, Ex 'ntp' is process while 'ntpd' is daemon
+	- Every process could have a multiple threads in background
+	- Job is created by schedular to run those applications and services 
+
+- 'top' cmd provides dynamic real time view of ur system, Suppose u wants to know which process in ur computer is taking most
+of the CPU etc then use cmd -> top // a window will appear with data, Here PID -> Process ID, in linux every program and 
+process has it's own ID, u can see CPU usage, Memory usage etc
+- 'top' refreshes the data of process usage table in every 3 seconds bydeafult
+- U can change the delay time from 3 seconds to other interval also by pressing 's' after 'top' cmd is executed
+- To filter out ideal processes(processes u need not to know as they will always we running) press 'i'
+- To kill any process press 'k' and then enter the 'pid' of the process
+
+- pidof process_name // to find the pid of process
+
+- kill -flags pid_of_process        // syntax for kill cmd
+- kill pid_no                       // to kill the process
+- kill -KILL pid_no                 // this will force kill only use when needed
+- kill -9 pid_no                    // this also a kind of force kill but not as powerfull as -KILL
+- pkill procecss_name     // this is used to kill process via name
+
+- ps -ux | grep service_name  // to get the long list of all running processes this is usefull in knowing the name of process or the
+                    // process id of some process and use grep to find particular process
+- ps -aux           // the 'ps -ux' gives processes list for the current user only, to know all the processes by all users use
+                    // 'ps -aux' cmd
+- ps -U user_name   // this will give all the processes of the entered user
+- ps -C name_of_process     // this will list out all the instances or processes which r related to process entered
+- imp cmd -> ps -ef // display current processes
+
+- nice // it is used to prioritize process, Ex -> nice -n 5 procecss   // this will tell the process to be in top 5 priority process
+ 	Note -> the niceness scale goes from -20 to 19, The lower the no. the more priority it has
+
+- systemctrl or service, Ex -> systemctl restart ntpd
+- crontab // is used to schedule scripts, cmds in system
+	Ex -> crontab -e // this will open an editor mode
+		> 22 13 * 3 * echo "This is crontab" > crontab -entry   // here 22 is the date, 13 is the time to change and '* 3'
+		tells that how many times to repeat this
+		
+		Types of Cronjobs -> Hourly, Daily, Weekly, monthly // u can add cronjobs in their directories on system as path
+		/etc/cron.daily, /etc/cron.hourly and so on
+		The timing for each is set in - /etc/anacrontab  // except hourly as it is in 
+		Ex to set -> https://academy.ehacking.net/courses/551622/lectures/10003185
+		
+- at // it is like crontab except at is scheduled one time basis
+
+- Background cmds -> first start a process // as the process is not run it will not give u prompt back to do additional tasks
+		     use ctrl + z to stop the process
+		     jobs // to list what is stoped
+		     bg // to put process in background -> https://academy.ehacking.net/courses/551622/lectures/10003186
+		     
+- Foregroundcmds -> fg // to see the process in background
+- To Run process even after exit -> nohup process_name & or u can use this cmd ->
+	nohup process_name > /dev/null 2>&1 & // as it will prevent the warnings to occur, on using nohup it will create a file
+	nohup.out for all the task nohup is doing
+	
+- sleep 100 // this will make the system sleep for 100 secs before giving the prompt back
+- jobs // this will show the process just stopped
+		     
+- fg // to bring process back from background -> https://academy.ehacking.net/courses/551622/lectures/10003186
+
+# User Account Management
+
+- cat /etc/group // to list the groups
+- cat /etc/shadow // it is for the password of the users we create it
+- less /etc/passwd 	// to list the users and follow link to understand the logs ->
+	https://linuxize.com/post/how-to-list-users-in-linux/
+
+- 'passwd' cmd allows u to change the password for the user
+- sudo passwd user_name // now u can change the password for the entered user if u enter username as root then it will
+  change the password for root 
+
+- 'sudo' cmd allows extra privilages as administrator or more then normal user
+- 'sudo' infront of any cmd will enhance the privilage criteria for that cmd
+- su - // to become root user
+- su username // to change user
+
+- Adding a New Non-Root User in Kali Linux -> https://thecrazybastard.com/how-to-add-a-new-user-in-kali-linux/
+
+- 'userdel' cmd is used to delete the user
+- sudo userdel user_name // it will delete the user but it will not delete the directory of the user which u can see by using          
+  cmd -> ls /home/, Hence the user will be deleted but his data will not
+- sudo userdel -r user_name   // this will delete the home directory also with the user
+- sudo rm -r /home/mark/      // this will remove all the data of the user, So use it carefully
+
+- 'useradd' cmd is used to create a user
+- usermod -G groupname username // to change the group for a user
+cmd imp -> useradd -g groupname -s /bin/bash -c "Description msg" -m -d /home/username username // this cmd will done the all work
+together mostly used in IT by system admin to add user
+    // -m is going to create a default home directory for this
+    // user, -s is used for allowing the user to use the shell
+    // which we provide and here it is bash 
+    // -g is the default user flag and user will be assigned to 
+    // the group u mention, always use -g flag with the 'users'
+    // group, -c flag is used for providing the comments
+
+- groups                 // this will show u that to which groups ur current user is connected too.
+- sudo groupadd name_of_group           // to add the new group
+- sudo groupdel name_of_group           // to delete the group
+- sudo gpasswd -a user_name group_name  // assign user to a group
+- sudo gpasswd -d user_name group_name // to remove user from the group
+cmd -> chgrp -R groupname username // this will make changes to every folder of the username 
+
+- login -p username // to login into system
+
+
+# Monitor User ->
+- who // to see how many people r logged in
+- w // it is same work as 'who' but gives more detailed info related
+
+- last // this will tell u about the every user logged in ever in system, for not whole list just unique names of all users logged
+  so far use cmd -> last | awk '{print $1}' | sort | uniq
+- finger // it is to do trace of ur user where it is coming from what kind of protocol he is using
+- id username //to see uid and gid and to know whether user is existing or not
+
+- uptime - this tells how long the system being up for and load, users etc. Screenshot(521)
+- users // to list the users logged in the system
+- wall // this will broadcast or msg to anyone who is logged in the linux system -??
+- write username_to_send_them // it for specific user to another -??
+
+Note -> In Linux their r 2 types of accounts ->
+- local account // which is created normally with above cmds
+- Domain/Directory account // when u need to add user for access to 1000 servers then we use these accounts, the client will send
+  a send a request to the Directory server to authenticate and in response the server tells that the user is authenicated and allowed
+  to log in, in windows their is AD(Active Directory) here u do the same as u create a Account in Active Directory of the Windows
+  Server, the protocol used for this task is LDAP protocol to authenticate against a directory
+Diff bw AD, LDAP, IDM, WinBIND, OpenLDAP -> https://academy.ehacking.net/courses/551622/lectures/10003046
+
+# Types of help commands -> Screenshot(415)
+- man any_cmd (this gives the manual of the cmd) // we can also use --help in the place of 'man' Ex -> any_cmd --help
+
+- 'whatis' cmd will display short manual page discription for cmd -> whatis ls - ??
+
+- which cmd is used to return the path name of a file or a command which we use with this 'which' cmd
+- which ls //to know the location of the ls cmd
+- In bash scripting it is gud practice to use the full path name as we should use -> '/bin/ls' instead of just 'ls' , bcz some
+  OS recognize the 'ls' cmd and some will require u to enter the full path for the 'ls' cmd
+
+# Free resources and Used Resources and System monitoring ->
+- df        // this cmd reports the amount of Disk space being used and avilable by ur file system
+- df -h     // displays the data in more human readable format
+- du        // this cmd is used to estimate and display disk space used by files, navigate into the directory on which u wants
+            // to use this cmd and in the last of all listing it will shoe u the size of the folder
+- du -h     // displays the data in more human readable format
+- du -sh    // '-s' is for summary , 'h' is for human redable, this will calculate the disk space and all of it used
+- du -sh foler_name     // to know the details for the following folder
+
+- dmesg      // it gives the output for the system related warnings etc
+
+- iostat // this is for inout and output statictics that how we r communicating among the devices connected to system
+- iostat 1 // output the data in every second
+
+Note - if u get the .part on doing the ls while the downloading is going on then it means the download is only partially
+        complete
+
+- free      // dispalys the total amount of free and used physical and swap memory in the system as well as the buffer used by
+            // the kernel, the data associated by the title-> -/+ buffers/cache // displays the whole memory used by ur machine
+- free -b   // 'b' is for byte we can also use 'k' in place of 'b', k is for kilobyte , 'm' is for megabyte, 'g' for gigbyte and
+            // 't' for terabyte
+
+- cat /proc/cpuinfo   // to get all CPU related info
+- cat /proc/meminfo // to get memory related info
