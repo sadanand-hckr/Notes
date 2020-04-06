@@ -5,6 +5,25 @@ uses the 'yum'
 
 # General cmds 
 
+Wildcards -> Screenshot( 353, 354)
+* - represents zero or more characters
+? - represents single character
+[] - represents range of characters
+{} widlcard, Ex -> touch abcd{1..9}-xyz // this will create 9 files with name as abcd1-xyz to abcd9-xyz
+cmd  -> ls -l abc*   // list all files start with 'abc'
+cmd -> ls -l ?bc*   // ? here is representing single unknown character
+cmd -> ls -l *[cd]*  // list all files with 'cd'
+
+
+Run multiple cmds together -> we can use ';' for combining cmds
+- ls ; pwd          // now the o/p would be combination of both cmds and they will be executed from left to right
+- date ; CAL ; pwd  // here 'CAL' is a wrong cmd but still other cmds will be executed it will just gave the error for 2nd cmd
+- ls && pwd         // we can use '&&' in place of ';' and gives the same output
+- the only difference between ';' and '&&' is that the ';' will execute every cmd regardless of other cmds have been executed
+  successfully of not but with '&&' if the previously executed cmd is failed it will not execute the other left cmds
+- ls || pwd         // here it will give output for 'ls' only bcz here logical OR is applied as if any of the cmd is successful
+                    // it will not execute other cmds
+
 - ls        		// To list the files present in directory
 - ls option_cmd directory_name      // syntax for ls cmd
 - ls Documents          // this will list all the files which r in Documents directory
