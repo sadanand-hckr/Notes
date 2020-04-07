@@ -85,6 +85,8 @@ Note -> on doing cmd in home directory -> ls -ltr // u might see that the userna
 changing it and the reason for that the actual group of the user will always remain the username it is just now part of the another
 group to change it properly use the 
 
+cmd -> chgrp -R groupname username // this will make changes to every folder of the username 
+
 - mkdir directory_name // to create the directory
 
 - rm filename                       // to remove a file
