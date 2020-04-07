@@ -22,6 +22,48 @@ Ex -> cd /var/log/samba
 Relative path doesn't begin with '/' it identifies the position relative to ur current position
 Ex -> cd log  // it is relative to var directory as it is inside var directory
 
+- Each OS has a different protocol or client that is used to access the system
+	Ex -> windows - Remote Desktop(RDP)
+	      VMware ESX - vSphere client
+	      Linux - Putty, SecureCRT or SSH from Linux to lInux
+	      
+Linux File types ->
+	- = Regular file
+	d = directory
+	l = link
+	c = special file or device file
+	s = socket
+	p = named pipe
+	b = block device
+
+
+- updatedb 	// this will build the database for file and directory, use this before using locate but not all the time, once
+ when u start using kali linux just execute it in starting.
+
+- locate file_name // the locate will help u to find the file in whole computer or all the directories and places
+
+- find // on executing it, this will search for everything
+- find /etc -name file_name // now this will search the file only in etc folder, so put the location in 2nd param 
+- find /etc -name p* // this will search for every file which starts with p in the given location
+
+'locate' uses a prebuilt database, which should be regularly updated, while 'find' interates over a filesystem to locate
+files, thus locate is much faster then find, but can be inaccurate if the database(can be seen as a cache) is not updated
+
+Soft and Hard Links -> Screenshot(358)
+to create a soft link use cmd -> ln -s full_path_to_file // to verify if link is done to ls -al and u will see that the filename is
+directing to the path of the file, now if u will do the change in the original file then the link file would be also change
+accordingly -> ls -li // to list the inodes
+The inodes for the soft link is different from the original file of which it is link and if the original file is deleted the content
+in the soft link will also not appear as the file is removed but in hard link even if the original file is removed the hard link file
+still show the content.
+Note for hard link -> Screenshot(359)
+When a hard link is created it would not be shown as 'link' in details instead shown as normal file and also when u do ls -al u will
+not see the filename is directing to the path of the file like in soft link
+
+File System Structure and its Description -> Screenshot(362)
+
+
+
 Run multiple cmds together -> we can use ';' for combining cmds
 - ls ; pwd          // now the o/p would be combination of both cmds and they will be executed from left to right
 - date ; CAL ; pwd  // here 'CAL' is a wrong cmd but still other cmds will be executed it will just gave the error for 2nd cmd
@@ -122,18 +164,6 @@ Note -> If U get permission denied while listing of files with any command then 
 - init 0 or shutdown // to shutdown the machine
 - init 3 // multi user mode
 - halt // it shudown the computers and if their r processes that need some time to come down it doesn't care as it shutdown rightaway 
-
-- updatedb 	// this will build the database for file and directory, use this before using locate but not all the time, once
- when u start using kali linux just execute it in starting.
-
-- locate file_name // the locate will help u to find the file in whole computer or all the directories and places
-
-- find // on executing it, this will search for everything
-- find /etc -name file_name // now this will search the file only in etc folder, so put the location in 2nd param 
-- find /etc -name p* // this will search for every file which starts with p in the given location
-
-'locate' uses a prebuilt database, which should be regularly updated, while 'find' interates over a filesystem to locate
-files, thus locate is much faster then find, but can be inaccurate if the database(can be seen as a cache) is not updated
 
 - 'head' and 'tail' cmds generally we use them with files, So 'head' cmd could be used to output the first part of the file and  
   the 'tail' cmd could be used to output the last part of the file
@@ -342,14 +372,14 @@ Diff bw AD, LDAP, IDM, WinBIND, OpenLDAP -> https://academy.ehacking.net/courses
 - df        // this cmd reports the amount of Disk space being used and avilable by ur file system
 - df -h     // displays the data in more human readable format
 - du        // this cmd is used to estimate and display disk space used by files, navigate into the directory on which u wants
-            // to use this cmd and in the last of all listing it will shoe u the size of the folder
+            // to use this cmd and in the last of all listing it will show u the size of the folder
 - du -h     // displays the data in more human readable format
 - du -sh    // '-s' is for summary , 'h' is for human redable, this will calculate the disk space and all of it used
-- du -sh foler_name     // to know the details for the following folder
+- du -sh folder_name     // to know the details for the following folder
 
 - dmesg      // it gives the output for the system related warnings etc
 
-- iostat // this is for inout and output statictics that how we r communicating among the devices connected to system
+- iostat // this is for input and output statictics that how we r communicating among the devices connected to system
 - iostat 1 // output the data in every second
 
 Note - if u get the .part on doing the ls while the downloading is going on then it means the download is only partially
