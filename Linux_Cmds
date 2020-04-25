@@ -1,14 +1,15 @@
 Virtualbox Management -> https://academy.ehacking.net/courses/551622/lectures/10002215
 
 - Basic difference between Linux flavours is that Ubuntu or Debian based flavours use 'apt-get' and fedora or other same one
-uses the 'yum'
+uses the 'yum' 
 
-# General cmds 
-
-Wildcards -> Screenshot( 353, 354)
+Wildcards ->
 * - represents zero or more characters
 ? - represents single character
 [] - represents range of characters
+\ - as an escape character
+^ - the beginning of the line
+$ - the end of the line
 {} widlcard, Ex -> touch abcd{1..9}-xyz // this will create 9 files with name as abcd1-xyz to abcd9-xyz
 cmd  -> ls -l abc*   // list all files start with 'abc'
 cmd -> ls -l ?bc*   // ? here is representing single unknown character
@@ -37,7 +38,7 @@ Linux File types ->
 	b = block device
 
 
-- updatedb 	// this will build the database for file and directory, use this before using locate but not all the time, once
+- updatedb // this will build the database for file and directory, use this before using locate but not all the time, once
  when u start using kali linux just execute it in starting.
 
 - locate file_name // the locate will help u to find the file in whole computer or all the directories and places
@@ -50,15 +51,15 @@ Linux File types ->
 files, thus locate is much faster then find, but can be inaccurate if the database(can be seen as a cache) is not updated
 
 Soft and Hard Links -> Screenshot(358)
-to create a soft link use cmd -> ln -s full_path_to_file // to verify if link is done to ls -al and u will see that the filename is
-directing to the path of the file, now if u will do the change in the original file then the link file would be also change
-accordingly -> ls -li // to list the inodes
-The inodes for the soft link is different from the original file of which it is link and if the original file is deleted the content
-in the soft link will also not appear as the file is removed but in hard link even if the original file is removed the hard link file
-still show the content.
+to create a soft link use cmd -> ln -s full_path_to_file // to verify if link is done to ls -al and u will see that the
+filename is directing to the path of the file, now if u will do the change in the original file then the link file would
+be also change accordingly -> ls -li // to list the inodes
+The inodes for the soft link is different from the original file of which it is link and if the original file is deleted
+the content in the soft link will also not appear as the file is removed but in hard link even if the original file is
+removed the hard link file still show the content.
 Note for hard link -> Screenshot(359)
-When a hard link is created it would not be shown as 'link' in details instead shown as normal file and also when u do ls -al u will
-not see the filename is directing to the path of the file like in soft link
+When a hard link is created it would not be shown as 'link' in details instead shown as normal file and also when u do
+ls -al u will not see the filename is directing to the path of the file like in soft link
 
 File System Structure and its Description -> Screenshot(362)
 
@@ -81,9 +82,9 @@ Run multiple cmds together -> we can use ';' for combining cmds
 - ls -li 		// to list the inodes 
 - ls -sh		// to display size in human readble format
 
-Note -> on doing cmd in home directory -> ls -ltr // u might see that the username and groupname for the user is same even after
-changing it and the reason for that the actual group of the user will always remain the username it is just now part of the another
-group to change it properly use the 
+Note -> on doing cmd in home directory -> ls -ltr // u might see that the username and groupname for the user is same even
+after changing it and the reason for that the actual group of the user will always remain the username it is just now part
+of the another group to change it properly use the 
 
 cmd -> chgrp -R groupname username // this will make changes to every folder of the username 
 
@@ -144,11 +145,11 @@ Note -> If U get permission denied while listing of files with any command then 
 - pwd       // This cmd shows the current working directory
 
 - whoami // to find who is logged in the system at current
-- visudo  /etc/sudoers  // it is to edit file which is configuration file that allows u to add or remove the rights to run cmds
-  look for the string 'wheel' the users in this group can run all cmds -?? 
-- hostname // It is used to obtain the DNS(Domain Name System) name and set the system's hostname or NIS(Network Information System)
-  domain name. A hostname is a name which is given to a computer and it attached to the network. Its main purpose is to uniquely
-  identify over a network.
+- visudo  /etc/sudoers  // it is to edit file which is configuration file that allows u to add or remove the rights to run 
+cmds look for the string 'wheel' the users in this group can run all cmds -?? 
+- hostname // It is used to obtain the DNS(Domain Name System) name and set the system's hostname or NIS(Network Information
+System) domain name. A hostname is a name which is given to a computer and it attached to the network. Its main purpose is 
+to uniquely identify over a network.
 - hostnamectrl -set-hostname newhostname // to change the hostname
   place where the changes r done for hostname -> /etc/hostname
 
@@ -165,9 +166,10 @@ Note -> If U get permission denied while listing of files with any command then 
 - sudo init 6 or reboot // to restart the machine
 - init 0 or shutdown // to shutdown the machine
 - init 3 // multi user mode
-- halt // it shudown the computers and if their r processes that need some time to come down it doesn't care as it shutdown rightaway 
+- halt // it shudown the computers and if their r processes that need some time to come down it doesn't care as it shutdown
+  rightaway 
 
-- 'head' and 'tail' cmds generally we use them with files, So 'head' cmd could be used to output the first part of the file and  
+- 'head' and 'tail' cmds generally we use them with files, So 'head' cmd could be used to output the first part of the file and
   the 'tail' cmd could be used to output the last part of the file
 - Bydefault 'head' will print first 10 lines and 'tail' will print last 10 cmds
 - head file_name        // syntax for head
@@ -254,25 +256,26 @@ process has it's own ID, u can see CPU usage, Memory usage etc
 - kill -9 pid_no                    // this also a kind of force kill but not as powerfull as -KILL
 - pkill procecss_name     // this is used to kill process via name
 
-- ps -ux | grep service_name  // to get the long list of all running processes this is usefull in knowing the name of process or the
-                    // process id of some process and use grep to find particular process
+- ps -ux | grep service_name  // to get the long list of all running processes this is usefull in knowing the name of process
+                    //or the process id of some process and use grep to find particular process
 - ps -aux           // the 'ps -ux' gives processes list for the current user only, to know all the processes by all users use
                     // 'ps -aux' cmd
 - ps -U user_name   // this will give all the processes of the entered user
 - ps -C name_of_process     // this will list out all the instances or processes which r related to process entered
 - imp cmd -> ps -ef // display current processes
 
-- nice // it is used to prioritize process, Ex -> nice -n 5 procecss   // this will tell the process to be in top 5 priority process
+- nice // it is used to prioritize process, Ex -> nice -n 5 procecss   // this will tell the process to be in top 5 priority
+                                                                       // process
  	Note -> the niceness scale goes from -20 to 19, The lower the no. the more priority it has
 
 - systemctrl or service, Ex -> systemctl restart ntpd
 - crontab // is used to schedule scripts, cmds in system
 	Ex -> crontab -e // this will open an editor mode
-		> 22 13 * 3 * echo "This is crontab" > crontab -entry   // here 22 is the date, 13 is the time to change and '* 3'
-		tells that how many times to repeat this
+		> 22 13 * 3 * echo "This is crontab" > crontab -entry   // here 22 is the date, 13 is the time to change 
+		and '* 3' tells that how many times to repeat this
 		
-		Types of Cronjobs -> Hourly, Daily, Weekly, monthly // u can add cronjobs in their directories on system as path
-		/etc/cron.daily, /etc/cron.hourly and so on
+		Types of Cronjobs -> Hourly, Daily, Weekly, monthly // u can add cronjobs in their directories on system as
+		path /etc/cron.daily, /etc/cron.hourly and so on
 		The timing for each is set in - /etc/anacrontab  // except hourly as it is in 
 		Ex to set -> https://academy.ehacking.net/courses/551622/lectures/10003185
 		
@@ -319,8 +322,8 @@ process has it's own ID, u can see CPU usage, Memory usage etc
 
 - 'useradd' cmd is used to create a user
 - usermod -G groupname username // to change the group for a user
-cmd imp -> useradd -g groupname -s /bin/bash -c "Description msg" -m -d /home/username username // this cmd will done the all work
-together mostly used in IT by system admin to add user
+cmd imp -> useradd -g groupname -s /bin/bash -c "Description msg" -m -d /home/username username // this cmd will done the all
+work together mostly used in IT by system admin to add user
     // -m is going to create a default home directory for this
     // user, -s is used for allowing the user to use the shell
     // which we provide and here it is bash 
@@ -342,8 +345,8 @@ cmd -> chgrp -R groupname username // this will make changes to every folder of 
 - who // to see how many people r logged in
 - w // it is same work as 'who' but gives more detailed info related
 
-- last // this will tell u about the every user logged in ever in system, for not whole list just unique names of all users logged
-  so far use cmd -> last | awk '{print $1}' | sort | uniq
+- last // this will tell u about the every user logged in ever in system, for not whole list just unique names of all users
+logged so far use cmd -> last | awk '{print $1}' | sort | uniq
 - finger // it is to do trace of ur user where it is coming from what kind of protocol he is using
 - id username //to see uid and gid and to know whether user is existing or not
 
@@ -356,10 +359,10 @@ cmd -> chgrp -R groupname username // this will make changes to every folder of 
 
 Note -> In Linux their r 2 types of accounts ->
 - local account // which is created normally with above cmds
-- Domain/Directory account // when u need to add user for access to 1000 servers then we use these accounts, the client will send
-  a send a request to the Directory server to authenticate and in response the server tells that the user is authenicated and allowed
-  to log in, in windows their is AD(Active Directory) here u do the same as u create a Account in Active Directory of the Windows
-  Server, the protocol used for this task is LDAP protocol to authenticate against a directory
+- Domain/Directory account // when u need to add user for access to 1000 servers then we use these accounts, the client will
+send a send a request to the Directory server to authenticate and in response the server tells that the user is authenicated
+and allowed to log in, in windows their is AD(Active Directory) here u do the same as u create a Account in Active Directory
+of the Windows Server, the protocol used for this task is LDAP protocol to authenticate against a directory
 Diff bw AD, LDAP, IDM, WinBIND, OpenLDAP -> https://academy.ehacking.net/courses/551622/lectures/10003046
 
 # Types of help commands -> Screenshot(415)
@@ -391,8 +394,8 @@ Note - if u get the .part on doing the ls while the downloading is going on then
 
 - free      // dispalys the total amount of free and used physical and swap memory in the system as well as the buffer used by
             // the kernel, the data associated by the title-> -/+ buffers/cache // displays the whole memory used by ur machine
-- free -b   // 'b' is for byte we can also use 'k' in place of 'b', k is for kilobyte , 'm' is for megabyte, 'g' for gigbyte and
-            // 't' for terabyte
+- free -b   // 'b' is for byte we can also use 'k' in place of 'b', k is for kilobyte , 'm' is for megabyte, 'g' for gigbyte
+            // and 't' for terabyte
 
 - cat /proc/cpuinfo   // to get all CPU related info
 - cat /proc/meminfo // to get memory related info
@@ -624,18 +627,18 @@ be used to see network protocol statics
 - netstat -p | less  // to see the pid of all connection which r available
 - netstat -n | less  // to see the numberic ports which r being used by different interfaces in ur system
 - netstat -an | grep  ':80'// now it will show the output for the connections with the grep entered pattern of text
-- netstat -ano // it will show that which port of ur computer is connected to the port of another computer in Local Address and
-Foreign Address and the if the connection is their between the local and Foreign address then the "state" would be "established"
-and also tell the process ids so we can check from their that what service connection is established their such as Dropbox or
-a hacker is using it. 
+- netstat -ano // it will show that which port of ur computer is connected to the port of another computer in Local Address
+and Foreign Address and the if the connection is their between the local and Foreign address then the "state" would be
+"established" and also tell the process ids so we can check from their that what service connection is established their such
+as Dropbox or a hacker is using it. 
 
 - impt cmd -> netstat -rnv 
 
 - tcpdump -D // lists the interfaces which tcpdump is capable of Listening or capture from
 - tcpdump -i interface_name -nn // to capture traffic on particular interface, -nn will display the ports instead of protocol 
   Ex -> http will be shown as 80 using -nn
-- tcpdump -w file_name.pcap '(src src_IP and dst dst_IP) or (src src_IP and dst dst_IP)' // to capture packets on desired hosts
-networks, -w is to write captured data to file with extension pcap
+- tcpdump -w file_name.pcap '(src src_IP and dst dst_IP) or (src src_IP and dst dst_IP)' // to capture packets on desired 
+hosts networks, -w is to write captured data to file with extension pcap
 - tcpdump -r file_name.pcap // to read file with captured packets
 - tcpdump host host_ip_address port 80 // use 'port' to define port
 - tcpdump -i eth0 -v src port 443 and dst dst_IP_address // here we r defining src port and and destination IP address
@@ -650,11 +653,11 @@ Note -> use tcpdump to capture traffic and wireshark to analyse traffic
 
 - ethtool nic_interface_name // provide info for the interface NIC
 
-- lo // the loopback device is a special interface that ur computer uses to communicate with itself, It is mainly used for diagnostics
-and troubleshooting, and to connect to servers running on the local machine
+- lo // the loopback device is a special interface that ur computer uses to communicate with itself, It is mainly used for
+diagnostics and troubleshooting, and to connect to servers running on the local machine
 
-# NIC Bonding -> NIC  bonding is also known as network bonding, It can be defined as the aggregation or combination of multiple NIC
-into a single bond interface, It's main purpose is to provide high availability and redundancy
+# NIC Bonding -> NIC  bonding is also known as network bonding, It can be defined as the aggregation or combination of multiple
+NIC into a single bond interface, It's main purpose is to provide high availability and redundancy
 
 If u combine two NIC of 1 GB then it will provide 2GB and if one fails the other would be still working, Screenshot(529)
 
@@ -679,8 +682,10 @@ Ex -> wget http://website.com/file_to_download
 	File transfer cmds ->
 	
 	- ftp -> Ex -> Screenshot(533) 
-			To transfer the file to the server whoch is not running FTP daemon, we will try to load FTP on local host as
-			cmd -> ftp system_hostname // if daemon is not present it will say connection refused but still give ftp prompt 
+			To transfer the file to the server whoch is not running FTP daemon, we will try to load FTP on local
+			host as
+			cmd -> ftp system_hostname // if daemon is not present it will say connection refused but still give
+			ftp prompt 
 	- scp -> Ex - scp filename remote_host:path_to_copy 
 	- rsync // this is used by system admins to backup files to another system mostly using through cron job
 
@@ -711,18 +716,19 @@ cmd -> rpm -qa // q to query all the packages in system and list them
 
 Shell_Scripting  ->
 
-Bash scripts allow u to execute cmds from a file, Here interpretor is the Shell which gives u too much funtionalities, So if we r using
-Bash script it will work pretty much every time without installing the dependencies or additional extensions or additional modules
-Screenshot(526)
-Shell is basically the interface between us and UNIX kernal, UNIX kernal basically manages the systems resources or we can say hard ware
-Shell is accessed using the terminal
+Bash scripts allow u to execute cmds from a file, Here interpretor is the Shell which gives u too much funtionalities, So if
+we r using Bash script it will work pretty much every time without installing the dependencies or additional extensions or
+additional modules Screenshot(526)
+Shell is basically the interface between us and UNIX kernal, UNIX kernal basically manages the systems resources or we can
+say hard ware Shell is accessed using the terminal
 
 So the thing like 'madhur@ubuntu:-$' here madhur is the user name and $ represents the shell
 
 to check the shell types ur system supports use cmd-> cat /etc/shells
 to know where bash is located cmd -> which bash
 
-to create a file cmd -> touch hello.sh  //.sh extention is not necessary but for editor it is usefull and it is also best practice
+to create a file cmd -> touch hello.sh  //.sh extention is not necessary but for editor it is usefull and it is also best
+practice
 
 What is Kernel -> Screenshot(523)
 
@@ -746,14 +752,15 @@ extension is .sh for shell scripts
 
 - to display a string use echo on terminal ->echo hello  o/p-> hello
 - in the editor ->
- #!/bin/bash        // declaring then bash interpretor , bash is terminal instance which give u much more stream lined linux experience
+ #!/bin/bash        // declaring then bash interpretor , bash is terminal instance which give u much more stream lined linux
+ 		   // experience
  #!/bin/sh          // declaring the shell interpretor , this does not gives u full functionalities
  #!/bin/python
 
  echo "Hello World"
 
- if in the pyhton script the interpretor is not defined like this '#!/bin/python' and we try to execute the script like this ./filename
- then it will give the invalid argument specification error
+ if in the pyhton script the interpretor is not defined like this '#!/bin/python' and we try to execute the script like 
+ this ./filename then it will give the invalid argument specification error
 
  if u do cmd -> ls -al
  then u will see as -rw-rw-r-- // here the 1st -rw means the read nad write for u, 2nd -rw means read and write for the group and 3rd
