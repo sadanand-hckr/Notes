@@ -718,21 +718,17 @@ Shell_Scripting  ->
 
 Bash scripts allow u to execute cmds from a file, Here interpretor is the Shell which gives u too much funtionalities, So if
 we r using Bash script it will work pretty much every time without installing the dependencies or additional extensions or
-additional modules Screenshot(526)
+additional modules
 Shell is basically the interface between us and UNIX kernal, UNIX kernal basically manages the systems resources or we can
-say hard ware Shell is accessed using the terminal
+say hardware Shell is accessed using the terminal
 
-So the thing like 'madhur@ubuntu:-$' here madhur is the user name and $ represents the shell
+So the thing like 'madhur@ubuntu:-$' here madhur is the username and $ represents the shell
 
 to check the shell types ur system supports use cmd-> cat /etc/shells
 to know where bash is located cmd -> which bash
 
 to create a file cmd -> touch hello.sh  //.sh extention is not necessary but for editor it is usefull and it is also best
 practice
-
-What is Kernel -> Screenshot(523)
-
-What is Shell -> Screenshot(524)
 
 Types of Shell ->
 - Gnome // it is like Graphical environment that is in linux via GUI
@@ -744,17 +740,17 @@ Types of Shell ->
 
 cmd -> cal // to view the calender
 
-Bash Scripting is preferred more then Python bcz Shell is built in Unix and that means u can utilize the entire uniz tool set
-With Bash ScriptingFile Management is fully automated(Copy file, update file etc)
+Bash Scripting is preferred more then Python bcz Shell is built in Unix and that means u can utilize the entire unix tool set
+With Bash Scripting, File Management is fully automated(Copy file, update file etc)
 Bash is not that gud like python for analytics and Big Data, it is more for controlling the system and automating tasks
 
 extension is .sh for shell scripts
 
 - to display a string use echo on terminal ->echo hello  o/p-> hello
 - in the editor ->
- #!/bin/bash        // declaring then bash interpretor , bash is terminal instance which give u much more stream lined linux
- 		   // experience
- #!/bin/sh          // declaring the shell interpretor , this does not gives u full functionalities
+ #!/bin/bash        // declaring then bash interpretor, bash is terminal instance which give u much more stream lined linux
+ 		    // experience
+ #!/bin/sh          // declaring the shell interpretor, this does not gives u full functionalities
  #!/bin/python
 
  echo "Hello World"
@@ -763,12 +759,14 @@ extension is .sh for shell scripts
  this ./filename then it will give the invalid argument specification error
 
  if u do cmd -> ls -al
- then u will see as -rw-rw-r-- // here the 1st -rw means the read nad write for u, 2nd -rw means read and write for the group and 3rd
- r-- means read only permission for the user, rwx means the read write and execute
+ then u will see as -rw-rw-r-- // here the 1st -rw means the read and write for u
+ 2nd -rw means read and write for the group and 
+ 3rd r-- means read only permission for the user, rwx means the read write and execute
 
- if the tab is not completing the script then check the permissions for the file whether it is only read by doing cmd->'ls -al'
- and if it having 'r--' in the file specification then it is only read file, to change the specifications of the file u can do cmd
- 'chmod +x file_name'
+ if the tab is not completing the script then check the permissions for the file whether it is only read by doing 
+ cmd->'ls -al'
+ and if it having 'r--' in the file specification then it is only read file, to change the specifications of the file u can
+ do cmd -> 'chmod +x file_name'
  to revert the permissions use 'chmod -x file_name' cmd
 
 - Variables ->
@@ -782,17 +780,17 @@ $PWD
 
 User Defined Variables ->
 
-NAME="Sadanand"  // variable name should be always in Uppercase and no spaces after the variable and after the assignment operator
+NAME="Sadanand"  // variable name should be always in Uppercase and no spaces after the variable and after the 
+		 // assignment operator
 SPORT="Foot"
-STUDENT_01 = "John"
 echo "My name is $NAME" // to call a variable use the $ before the variable
 echo "The most famous sport is ${SPORT}ball"  // here we use the $ with curry braces for doing the concatenation of Strings
 
 - User Inputs and Comments ->
 
-read -p "Enter your Name: " NAME           // to get the user input -p is for prompt msg and 'NAME' is the variable in which it
-echo "Your name is $NAME"                  // is going to be store the input value and 'read' tells to read from terminal
-# User input                               // # is ur for comment
+read -p "Enter your Name: " NAME   // to get the user input -p is for prompt msg and 'NAME' is the variable in which it
+echo "Your name is $NAME"          // is going to store the input value and 'read' tells to read from terminal
+# User input                       // # is ur for comment
 
 read -sp "Enter ur Password: " PASSWORD   // with this the variable will get the value but not show on the o/p screen
 echo PASSWORD
@@ -805,8 +803,10 @@ echo "Enter Name"
 read                                  // using no variable
 echo "Name: $REPLY"                   // $REPLY is a built in variable to get the latest read input data
 
-echo -e "Enter your Full name \c"  // \c is used to keep the cursor on the same line and -e is used for \c otherwise it will print \c
-read FNAME LNAME        // to get the data into variables now in FNAME the 1st input string will come and in LNAME the 2nd input string
+echo -e "Enter your Full name \c"  // \c is used to keep the cursor on the same line and -e is used for \c otherwise it will
+			           // print \c
+read FNAME LNAME        // to get the data into variables now in FNAME the 1st input string will come and in LNAME the 2nd
+			// input string
 
 #in terminal after executing the script
 Enter ur Full name
