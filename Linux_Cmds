@@ -1,4 +1,7 @@
 Virtualbox Management -> https://academy.ehacking.net/courses/551622/lectures/10002215
+http://www.networkpentest.net/p/linuxunix-command-list.html
+
+cmd -curl ifconfig.me // to know own public ip address
 
 - Basic difference between Linux flavours is that Ubuntu or Debian based flavours use 'apt-get' and fedora or other same one
 uses the 'yum' 
