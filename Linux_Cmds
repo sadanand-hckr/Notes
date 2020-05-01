@@ -42,7 +42,28 @@ all chains r not avaible for all tables each chain gives u the option to take ac
 	cmd -> iptables -L -n -v  // L to list, n for numeric , v for verbose their it will putput filter table
 	
     cmd -> iptables -t mangle -L -n -v // t for telling table to list
- 
+----------------------------------------------------------------------
+
+iptables -L // to view tables rules
+
+iptables -P FORWARD DROP // to Drop the default policy FORWARD which is out of 3 plicies INPUT and OUTPUT
+
+iptables -A INPUT -s ip_address -j DROP// A to append rule to policy INPUT and -s as source address and -j 
+tells to block the traffic coming from source address
+
+iptables -A INPUT -s ip_address/24 -p tcp --destination-port 25 -j DROP // of protocol tcp, this will
+ block traffic from the source network for every device for smtp port 25
+
+iptables -A INPUT -s ip_address -j ACCEPT // this will allow to except from this IP 
+
+Note : above mentioned ACCEPT rule should be before the netowrk DROP rule bcz the rules r readen from top
+to bottom and it the DROP rule runs first the ACCEPT rule will never got the chance to run if it is of same 
+network as in 192.168.0.0/24 for DROP and 192.168.0.15 for ACCEPT
+
+iptables -D INPUT rule_no // -D to delete, from top to bottom (0 not included)
+
+iptables -I INPUT -s ip_address -j ACCEPT // -I for adding too except the -I add to atart and -A add to end
+ the rule
 
 
 - Basic difference between Linux flavours is that Ubuntu or Debian based flavours use 'apt-get' and fedora or other same one
