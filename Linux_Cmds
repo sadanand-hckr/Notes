@@ -5,6 +5,46 @@ netstat --inet -n //
 
 cmd -curl ifconfig.me // to know own public ip address
 
+  iptables ->
+  iptables contains of 5 tables out of which 3 r main tables 
+  Table1(Filter table) -> this is the default ip table for packet filtering
+  Table2(NAT table ) -> this table is used to odify or hos to modfy the packet source or destination addressess in order to
+  route the packet in NAT setup where direct access is not possible
+  Table3(Mangle table) -> this table is used to alter the IP tables of of the packet such as TTL value of the packet etc
+  other 2 tables r RAW table which is used for connection tracking it provides mechanism for marking packets to view the
+  packets as part of the ongoing connection or session and Security table is used to set internal SELinux security context
+  marks on packet which will affect how SELinux or other system that can interpret SELinux
+  
+  Chains r like points in the route of a packet where u can apply rules their r 5 chains in IPtable, Screenshot(542)
+	- pre routing // it is applied to any incoming packet as soon entering the network stack this chain is process before taking
+	any routing decision have been made regarding where to send the packet
+	- input // this is the point post pre-routing when packet enter the system
+	- forward // it is applied to the packet that is forwarded through ur system
+	- output // it is applied to the packet originated thorugh ur system
+	- post routing // this is opposite of pre-routing this is applied to outgoing packet after routing decision has taken place
+	and just before packet has been put on the wire 
+
+all chains r not avaible for all tables each chain gives u the option to take action on the packet on that particular
+	point of the packet route
+	
+
+	To determine which chain is avaibale for which table -> Screenshot(543)
+	Traversal order -> Screenshot(544)
+	
+	Ex -> iptables -A INPUT -s 15.15.15.15 -j DROP // to block an ip address
+	-s is for matching component can be defined for ip address, port address, interfaces, headers
+	-j is target component is the action to be triggered when the packet meets the matching critaria of a rule 
+	
+	their r 2 types of target terminating(these r actions that end the furher traversal in that particular chain, Ex ->
+	Accept, Drop, Queue, Reject, Return, User-defined) and non-terminating target(u perform an action and continue evaluation
+	within the chain not all action is avaiable for every chain in table )
+	
+	cmd -> iptables -L -n -v  // L to list, n for numeric , v for verbose their it will putput filter table
+	
+    cmd -> iptables -t mangle -L -n -v // t for telling table to list
+ 
+
+
 - Basic difference between Linux flavours is that Ubuntu or Debian based flavours use 'apt-get' and fedora or other same one
 uses the 'yum' 
 
