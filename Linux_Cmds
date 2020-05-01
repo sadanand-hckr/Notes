@@ -1,5 +1,7 @@
 Virtualbox Management -> https://academy.ehacking.net/courses/551622/lectures/10002215
 http://www.networkpentest.net/p/linuxunix-command-list.html
+https://stackify.com/linux-logs/
+netstat --inet -n // 
 
 cmd -curl ifconfig.me // to know own public ip address
 
