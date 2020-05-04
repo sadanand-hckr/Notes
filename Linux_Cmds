@@ -223,7 +223,7 @@ to uniquely identify over a network.
 
 
 - cat /etc/os-release // to get info of OS
-- uname -a // for kernel info
+- uname -a // for kernel info - https://linuxhandbook.com/uname/
 - sudo dmidecode // to get proper and detailed info for the system
 
 
