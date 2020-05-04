@@ -5,7 +5,8 @@ https://www.cyberciti.biz/tips/linux-iptables-examples.html
 
 lsof //To know which user has opened which file, https://www.tecmint.com/10-lsof-command-examples-in-linux/
 
-netstat --inet -n // 
+netstat --inet -n // imp cmd 
+How to use netstat properly -> https://www.howtogeek.com/513003/how-to-use-netstat-on-linux/
 
 cmd -curl ifconfig.me // to know own public ip address
 
