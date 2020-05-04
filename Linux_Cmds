@@ -316,6 +316,11 @@ process has it's own ID, u can see CPU usage, Memory usage etc
 - To filter out ideal processes(processes u need not to know as they will always we running) press 'i'
 - To kill any process press 'k' and then enter the 'pid' of the process
 
+imp cmd -> top -n 1 -b > filename.txt // to save running top result
+
+Note -> top should be used to see which processes are most active, ps could be used to see which processes you (or
+any other user) are running currently.
+
 - pidof process_name // to find the pid of process
 
 - kill -flags pid_of_process        // syntax for kill cmd
@@ -440,14 +445,14 @@ Diff bw AD, LDAP, IDM, WinBIND, OpenLDAP -> https://academy.ehacking.net/courses
 
 - which cmd is used to return the path name of a file or a command which we use with this 'which' cmd
 - which ls //to know the location of the ls cmd
-- In bash scripting it is gud practice to use the full path name as we should use -> '/bin/ls' instead of just 'ls' , bcz some
-  OS recognize the 'ls' cmd and some will require u to enter the full path for the 'ls' cmd
+- In bash scripting it is gud practice to use the full path name as we should use -> '/bin/ls' instead of just 'ls' , bcz
+some OS recognize the 'ls' cmd and some will require u to enter the full path for the 'ls' cmd
 
 # Free resources and Used Resources and System monitoring ->
 - df        // this cmd reports the amount of Disk space being used and avilable by ur file system
 - df -h     // displays the data in more human readable format
-- du        // this cmd is used to estimate and display disk space used by files, navigate into the directory on which u wants
-            // to use this cmd and in the last of all listing it will show u the size of the folder
+- du        // this cmd is used to estimate and display disk space used by files, navigate into the directory on which u
+            // wants to use this cmd and in the last of all listing it will show u the size of the folder
 - du -h     // displays the data in more human readable format
 - du -sh    // '-s' is for summary , 'h' is for human redable, this will calculate the disk space and all of it used
 - du -sh folder_name     // to know the details for the following folder
@@ -460,10 +465,12 @@ Diff bw AD, LDAP, IDM, WinBIND, OpenLDAP -> https://academy.ehacking.net/courses
 Note - if u get the .part on doing the ls while the downloading is going on then it means the download is only partially
         complete
 
-- free      // dispalys the total amount of free and used physical and swap memory in the system as well as the buffer used by
-            // the kernel, the data associated by the title-> -/+ buffers/cache // displays the whole memory used by ur machine
-- free -b   // 'b' is for byte we can also use 'k' in place of 'b', k is for kilobyte , 'm' is for megabyte, 'g' for gigbyte
-            // and 't' for terabyte
+- free      // dispalys the total amount of free and used physical and swap memory in the system as well as the buffer
+            // used by
+            // the kernel, the data associated by the title-> -/+ buffers/cache // displays the whole memory used by 
+	    // ur machine
+- free -b   // 'b' is for byte we can also use 'k' in place of 'b', k is for kilobyte , 'm' is for megabyte, 'g' for
+           //gigbyte and 't' for terabyte
 
 - cat /proc/cpuinfo   // to get all CPU related info
 - cat /proc/meminfo // to get memory related info
@@ -476,14 +483,13 @@ Compare Files -> Screenshot(423)
 - cmd -> diff file1 file2 // tells the difference between two files line by line
 - cmd -> cmp file1 file2 // tells the difference in files in respect of bytes 
 
-- 'tar' cmd is used to create, maintain, modify and extract files which r archived in the tar(Tape Archive) format, tar is an
-  archiving file format just like zip file
+- 'tar' cmd is used to create, maintain, modify and extract files which r archived in the tar(Tape Archive) format, tar 
+is an archiving file format just like zip file
 - tar -cvf        // 'c' for creating an archive, 'v' for verbose, 'f' allows u to specify the file name if it not used then
                   // linux is going to create a Zip file which is going to be system dependent and it's name is not defined
                   // by u
-- tar -cvf  name_of_file_u_wants_to_give.tar file_name_which_has_to_be_compresed  // this will compress the file to tar, it's
-                                                                                  // better to give .tar extension in the name
-                                                                                  // for the file u r going to create
+- tar -cvf  name_of_file_u_wants_to_give.tar file_name_which_has_to_be_compresed  // this will compress the file to tar,
+// it's better to give .tar extension in the name for the file u r going to create
 - tar -xvf  name_of_tar_file        // to will decompress the file
 - tar -czvf name_of_file_u_wants_to_give.tar.gz file_name_which_has_to_be_compresed //here 'z' will create the file with gz
                                                                                     // format
