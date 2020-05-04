@@ -7,6 +7,7 @@ lsof //To know which user has opened which file, https://www.tecmint.com/10-lsof
 
 netstat --inet -n // imp cmd 
 How to use netstat properly -> https://www.howtogeek.com/513003/how-to-use-netstat-on-linux/
+https://www.thegeekstuff.com/2010/03/netstat-command-examples/
 
 cmd -curl ifconfig.me // to know own public ip address
 
