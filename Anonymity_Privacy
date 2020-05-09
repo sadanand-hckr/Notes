@@ -3,3 +3,15 @@ uBlock addon -> https://www.youtube.com/watch?v=2lisQQmWQkY
 noscript addon -> https://www.youtube.com/watch?v=AC4ALEKZRfg&t=184s
 
 whonix use with virtualbox setup -> https://www.youtube.com/watch?v=g8SzRhA8NXI
+
+Cloudfare DNS service(1.1.1.1) it will improve ur browsing speed by 25% and it is specially setup to prevent ur privacy and
+prevent ur ISP from tracking ur browsing activities, most of the times DNS is selected by routers IP which can tell all ur
+History.
+
+Change DNS on Kali Linux ->
+cmd -> vim /etc/resolv.conf and change the nameserver as 1.1.1.1
+
+check on the 'standard test' on dnsleaktest.com the ISP should be now Cloudflare
+
+
+
