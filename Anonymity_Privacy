@@ -13,5 +13,10 @@ cmd -> vim /etc/resolv.conf and change the nameserver as 1.1.1.1
 
 check on the 'standard test' on dnsleaktest.com the ISP should be now Cloudflare
 
+Hiding Identity ->
+Proxy Servers -> It's hard to find the identity of a hacker, We can use Tor browser for this task, tor
+actually transfers ur data or request from multiple proxies(proxy chain) which makes it difficult to trace back the real user.
+Tor browser will only hide when u r browsing some website but not if u r using system it won't help u.
+
 
 
