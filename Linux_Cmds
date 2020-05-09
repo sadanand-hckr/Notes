@@ -1,15 +1,12 @@
-Virtualbox Management -> https://academy.ehacking.net/courses/551622/lectures/10002215
-http://www.networkpentest.net/p/linuxunix-command-list.html
-https://stackify.com/linux-logs/
-https://www.cyberciti.biz/tips/linux-iptables-examples.html
+# Virtualbox Management -> https://academy.ehacking.net/courses/551622/lectures/10002215
 
-lsof //To know which user has opened which file, https://www.tecmint.com/10-lsof-command-examples-in-linux/
+# http://www.networkpentest.net/p/linuxunix-command-list.html
 
-netstat --inet -n // imp cmd 
-How to use netstat properly -> https://www.howtogeek.com/513003/how-to-use-netstat-on-linux/
-https://www.thegeekstuff.com/2010/03/netstat-command-examples/
+# https://stackify.com/linux-logs/
 
-cmd -curl ifconfig.me // to know own public ip address
+# lsof //To know which user has opened which file, https://www.tecmint.com/10-lsof-command-examples-in-linux/
+
+# iptables -> https://www.cyberciti.biz/tips/linux-iptables-examples.html
 
   iptables ->
   iptables contains of 5 tables out of which 3 r main tables 
@@ -71,6 +68,14 @@ iptables -D INPUT rule_no // -D to delete, from top to bottom (0 not included)
 iptables -I INPUT -s ip_address -j ACCEPT // -I for adding too except the -I add to atart and -A add to end
  the rule
 
+
+
+
+netstat --inet -n // imp cmd 
+How to use netstat properly -> https://www.howtogeek.com/513003/how-to-use-netstat-on-linux/
+https://www.thegeekstuff.com/2010/03/netstat-command-examples/
+
+cmd -curl ifconfig.me // to know own public ip address
 
 - Basic difference between Linux flavours is that Ubuntu or Debian based flavours use 'apt-get' and fedora or other same one
 uses the 'yum' 
